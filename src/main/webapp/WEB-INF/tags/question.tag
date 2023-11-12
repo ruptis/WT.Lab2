@@ -1,5 +1,5 @@
 <%@ taglib uri="jakarta.tags.core" prefix="c" %>
-<%@attribute name="question" required="true" type="by.bsuir.wtlab2.model.Question" %>
+<%@attribute name="question" required="true" type="by.bsuir.wtlab2.beans.Question" %>
 
 <div class="list-group mt-2">
     <div class="list-group-item card">
@@ -19,7 +19,7 @@
                             <span>${question.topic}</span>
                         </div>
                         <div>
-                            <img src="avatar.jpg" alt="Avatar" class="rounded-circle me-2" width="32" height="32">
+                            <img src="/resources/images/avatar.png" alt="Avatar" class="rounded-circle me-2" width="32" height="32">
                             <span>${question.author}</span>
                         </div>
                     </div>

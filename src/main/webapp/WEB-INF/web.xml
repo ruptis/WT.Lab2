@@ -8,15 +8,6 @@
         <listener-class>by.bsuir.wtlab2.application.ApplicationContext</listener-class>
     </listener>
 
-    <filter>
-        <filter-name>CommandFilter</filter-name>
-        <filter-class>by.bsuir.wtlab2.filter.CommandFilter</filter-class>
-    </filter>
-    <filter-mapping>
-        <filter-name>CommandFilter</filter-name>
-        <url-pattern>/*</url-pattern>
-    </filter-mapping>
-
     <servlet>
         <servlet-name>Controller</servlet-name>
         <servlet-class>by.bsuir.wtlab2.controller.Controller</servlet-class>
@@ -26,6 +17,25 @@
         <servlet-name>Controller</servlet-name>
         <url-pattern>/command/*</url-pattern>
     </servlet-mapping>
+
+    <filter>
+        <filter-name>SecurityFilter</filter-name>
+        <filter-class>by.bsuir.wtlab2.filter.SecurityFilter</filter-class>
+    </filter>
+    <filter-mapping>
+        <filter-name>SecurityFilter</filter-name>
+        <servlet-name>Controller</servlet-name>
+        <dispatcher>FORWARD</dispatcher>
+    </filter-mapping>
+
+    <filter>
+        <filter-name>CommandFilter</filter-name>
+        <filter-class>by.bsuir.wtlab2.filter.CommandFilter</filter-class>
+    </filter>
+    <filter-mapping>
+        <filter-name>CommandFilter</filter-name>
+        <url-pattern>/*</url-pattern>
+    </filter-mapping>
 
     <error-page>
         <location>/WEB-INF/views/error.jsp</location>

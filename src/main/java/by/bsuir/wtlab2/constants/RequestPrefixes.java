@@ -1,5 +1,8 @@
 package by.bsuir.wtlab2.constants;
 
+import lombok.Getter;
+
+@Getter
 public enum RequestPrefixes {
     VIEWS_PREFIX("/WEB-INF/views/"),
     RESOURCES_PREFIX("/resources"),
@@ -11,7 +14,4 @@ public enum RequestPrefixes {
         this.value = value;
     }
 
-    public String getValue() {
-        return value;
-    }
 }

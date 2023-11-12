@@ -23,12 +23,16 @@ public class Mapper {
         mappings.put(mapping, commandType);
     }
 
-    public Command getCommand(HttpServletRequest request) throws MappingException, CommandException {
-        var mapping = CommandMapping.of(request);
+    public Command getCommand(CommandMapping mapping) throws MappingException, CommandException {
         var commandType = mappings.get(mapping);
         if (commandType == null) {
             throw new MappingException("No command for path " + mapping);
         }
         return commandFactory.createCommand(commandType);
+    }
+
+    public Command getCommand(HttpServletRequest request) throws MappingException, CommandException {
+        var mapping = CommandMapping.of(request);
+        return getCommand(mapping);
     }
 }

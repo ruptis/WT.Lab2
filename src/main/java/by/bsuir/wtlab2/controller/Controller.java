@@ -16,8 +16,6 @@ import jakarta.servlet.http.HttpServletResponse;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import java.io.IOException;
-
 public class Controller extends HttpServlet {
     private final transient Logger logger = LoggerFactory.getLogger(Controller.class);
     private transient Mapper mapper;
@@ -25,16 +23,16 @@ public class Controller extends HttpServlet {
     @Override
     public void init() throws ServletException {
         super.init();
-        var diContainer = DiContainer.initialize();
+        var resolver = DiContainer.getResolver();
         try {
-            mapper = diContainer.resolve(Mapper.class);
+            mapper = resolver.resolve(Mapper.class);
         } catch (DiException e) {
             throw new ServletException("Failed to initialize controller.", e);
         }
     }
 
     @Override
-    protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+    protected void service(HttpServletRequest req, HttpServletResponse resp) {
         logger.debug("Request: {} {}", req.getMethod(), req.getRequestURI());
         CommandResult result;
         try {
@@ -43,17 +41,17 @@ public class Controller extends HttpServlet {
             result = command.execute(req);
         } catch (MappingException e) {
             result = new NotFoundResult();
-            logger.error("Failed to map request.", e);
+            logger.trace("Failed to map request to command.", e);
         } catch (CommandException e) {
             result = new StatusCodeResult(500);
-            logger.error("Failed to execute command.", e);
+            logger.trace("Failed to execute command.", e);
         }
 
         logger.debug("Result: {}", result.getClass().getName());
         try {
             result.executeResult(req, resp);
         } catch (CommandException e) {
-            throw new ServletException("Failed to execute command result.", e);
+            logger.error("Failed to execute command result.", e);
         }
     }
 }

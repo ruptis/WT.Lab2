@@ -1,5 +1,8 @@
-package by.bsuir.wtlab2.model;
+package by.bsuir.wtlab2.beans;
 
+import lombok.Getter;
+
+@Getter
 public class Topic {
     private int id;
     private String name;
@@ -11,24 +14,12 @@ public class Topic {
         this.questionsCount = questionsCount;
     }
 
-    public int getQuestionsCount() {
-        return questionsCount;
-    }
-
     public void setQuestionsCount(int questionsCount) {
         this.questionsCount = questionsCount;
     }
 
-    public String getName() {
-        return name;
-    }
-
     public void setName(String name) {
         this.name = name;
-    }
-
-    public int getId() {
-        return id;
     }
 
     public void setId(int id) {

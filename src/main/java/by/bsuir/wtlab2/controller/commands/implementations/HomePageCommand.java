@@ -5,8 +5,8 @@ import by.bsuir.wtlab2.controller.commands.Command;
 import by.bsuir.wtlab2.controller.commands.results.CommandResult;
 import by.bsuir.wtlab2.controller.commands.results.JspResult;
 import by.bsuir.wtlab2.exception.CommandException;
-import by.bsuir.wtlab2.model.Question;
-import by.bsuir.wtlab2.model.Topic;
+import by.bsuir.wtlab2.beans.Question;
+import by.bsuir.wtlab2.beans.Topic;
 import jakarta.servlet.http.HttpServletRequest;
 
 import java.util.HashMap;

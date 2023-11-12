@@ -15,6 +15,18 @@ public class SingletonRegistry {
 
     public void register(String packageName){
         List<Class<?>> classes = ClassScanner.scan(packageName, Singleton.class);
-        classes.forEach(diContainer::bind);
+        classes.forEach(this::bind);
+    }
+
+    private void bind(Class<?> implementation) {
+        Class<?>[] interfaces = implementation.getInterfaces();
+        for (var interfaceClass : interfaces) {
+            bind(interfaceClass, implementation);
+        }
+    }
+
+    @SuppressWarnings("unchecked")
+    private <T> void bind(Class<?> interfaceClass, Class<? extends T> implementationClass) {
+        diContainer.bind((Class<T>) interfaceClass, implementationClass);
     }
 }

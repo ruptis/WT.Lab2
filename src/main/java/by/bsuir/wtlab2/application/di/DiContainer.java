@@ -25,6 +25,10 @@ public class DiContainer {
         return instance;
     }
 
+    public static Resolver getResolver() {
+        return initialize().resolver;
+    }
+
     public <T> void bind(Class<T> contract, Class<? extends T> implementation) {
         contractBinder.bind(contract, implementation);
     }
