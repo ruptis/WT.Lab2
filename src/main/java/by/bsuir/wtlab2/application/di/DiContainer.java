@@ -1,32 +1,21 @@
 package by.bsuir.wtlab2.application.di;
 
 import by.bsuir.wtlab2.exception.DiException;
+import lombok.Getter;
 
-public class DiContainer {
+public class DiContainer implements Destroyable {
+    @Getter
     private final Resolver resolver;
     private final ContractBinder contractBinder;
     private final InstanceCache instanceCache;
 
-    private static DiContainer instance;
-
-    private DiContainer() {
+    public DiContainer() {
         contractBinder = new ContractBinder();
         instanceCache = new InstanceCache();
-        var instantiator = new Instantiator();
+        Instantiator instantiator = new Instantiator();
         resolver = new Resolver(contractBinder, instanceCache, instantiator);
         bindInstance(resolver);
         bindInstance(this);
-    }
-
-    public static DiContainer initialize() {
-        if (instance == null) {
-            instance = new DiContainer();
-        }
-        return instance;
-    }
-
-    public static Resolver getResolver() {
-        return initialize().resolver;
     }
 
     public <T> void bind(Class<T> contract, Class<? extends T> implementation) {
@@ -53,5 +42,10 @@ public class DiContainer {
 
     public void bind(Class<?> implementation) {
         contractBinder.bind(implementation);
+    }
+
+    @Override
+    public void destroy() {
+        instanceCache.destroy();
     }
 }

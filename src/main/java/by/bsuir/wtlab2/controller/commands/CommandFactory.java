@@ -5,7 +5,7 @@ import by.bsuir.wtlab2.application.di.Resolver;
 import by.bsuir.wtlab2.exception.CommandException;
 
 @Singleton
-public class CommandFactory {
+public final class CommandFactory {
     private final Resolver resolver;
 
     public CommandFactory(Resolver resolver) {

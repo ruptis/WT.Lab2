@@ -4,7 +4,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Optional;
 
-public class InstanceCache {
+public class InstanceCache implements Destroyable {
     private final Map<Class<?>, Object> instances = new HashMap<>();
 
     public <T> void addInstance(Class<? extends T> contract, Object instance) {
@@ -16,5 +16,12 @@ public class InstanceCache {
             return Optional.of(contract.cast(instances.get(contract)));
         }
         return Optional.empty();
+    }
+
+    @Override
+    public void destroy() {
+        instances.values().forEach(instance -> {
+            if (instance instanceof Destroyable destroyable) destroyable.destroy();
+        });
     }
 }

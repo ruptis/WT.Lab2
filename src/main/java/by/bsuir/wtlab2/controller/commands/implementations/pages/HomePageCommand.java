@@ -1,19 +1,23 @@
-package by.bsuir.wtlab2.controller.commands.implementations;
+package by.bsuir.wtlab2.controller.commands.implementations.pages;
 
+import by.bsuir.wtlab2.annotations.CommandSecurity;
 import by.bsuir.wtlab2.annotations.WebCommand;
 import by.bsuir.wtlab2.controller.commands.Command;
 import by.bsuir.wtlab2.controller.commands.results.CommandResult;
 import by.bsuir.wtlab2.controller.commands.results.JspResult;
+import by.bsuir.wtlab2.entity.Question;
+import by.bsuir.wtlab2.entity.Topic;
 import by.bsuir.wtlab2.exception.CommandException;
-import by.bsuir.wtlab2.beans.Question;
-import by.bsuir.wtlab2.beans.Topic;
 import jakarta.servlet.http.HttpServletRequest;
 
 import java.util.HashMap;
 import java.util.Map;
 
+import static by.bsuir.wtlab2.constants.Role.BANNED;
+
+@CommandSecurity(except = {BANNED})
 @WebCommand(mapping = "/")
-public class HomePageCommand implements Command {
+public final class HomePageCommand implements Command {
     @Override
     public CommandResult execute(HttpServletRequest request) throws CommandException {
         Topic[] topics = getTopics();

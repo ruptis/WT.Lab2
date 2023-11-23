@@ -1,4 +1,4 @@
-package by.bsuir.wtlab2.controller.commands.implementations;
+package by.bsuir.wtlab2.controller.commands.implementations.pages;
 
 import by.bsuir.wtlab2.annotations.WebCommand;
 import by.bsuir.wtlab2.constants.HttpMethod;
@@ -8,10 +8,10 @@ import by.bsuir.wtlab2.controller.commands.results.JspResult;
 import by.bsuir.wtlab2.exception.CommandException;
 import jakarta.servlet.http.HttpServletRequest;
 
-@WebCommand(mapping = "/login", method = HttpMethod.GET)
-public class LogInPageCommand implements Command {
+@WebCommand(mapping = "/register", method = HttpMethod.GET)
+public class RegisterPageCommand implements Command {
     @Override
     public CommandResult execute(HttpServletRequest request) throws CommandException {
-        return new JspResult("login");
+        return new JspResult("register");
     }
 }

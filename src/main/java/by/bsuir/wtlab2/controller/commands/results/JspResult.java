@@ -5,7 +5,7 @@ import by.bsuir.wtlab2.exception.CommandException;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 
-import java.util.HashMap;
+import java.util.Collections;
 import java.util.Map;
 
 public class JspResult implements CommandResult {
@@ -19,7 +19,7 @@ public class JspResult implements CommandResult {
 
     public JspResult(String page)
     {
-        this(page, new HashMap<>());
+        this(page, Collections.emptyMap());
     }
 
     @Override

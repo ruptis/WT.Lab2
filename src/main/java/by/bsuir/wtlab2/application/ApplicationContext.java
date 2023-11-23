@@ -6,26 +6,35 @@ import by.bsuir.wtlab2.application.registries.SingletonRegistry;
 import by.bsuir.wtlab2.exception.DiException;
 import jakarta.servlet.ServletContextEvent;
 import jakarta.servlet.ServletContextListener;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import lombok.extern.slf4j.Slf4j;
 
+@Slf4j
 public class ApplicationContext implements ServletContextListener {
-    private final Logger logger = LoggerFactory.getLogger(ApplicationContext.class);
+    private static final String PACKAGE_NAME = "by.bsuir.wtlab2";
+    public DiContainer diContainer;
 
-    public static final String PACKAGE_NAME = "by.bsuir.wtlab2";
+    public ApplicationContext() {
+        diContainer = new DiContainer();
+    }
 
     @Override
     public void contextInitialized(ServletContextEvent sce) {
         ServletContextListener.super.contextInitialized(sce);
-        var diContainer = DiContainer.initialize();
         diContainer.bind(SingletonRegistry.class);
         try {
-            var singletonRegistry = diContainer.resolve(SingletonRegistry.class);
+            SingletonRegistry singletonRegistry = diContainer.resolve(SingletonRegistry.class);
             singletonRegistry.register(PACKAGE_NAME);
-            var commandRegistry = diContainer.resolve(CommandRegistry.class);
+            CommandRegistry commandRegistry = diContainer.resolve(CommandRegistry.class);
             commandRegistry.register(PACKAGE_NAME);
         } catch (DiException e) {
-            logger.error("Failed to initialize application context", e);
+            log.error("Failed to initialize application context", e);
         }
+        sce.getServletContext().setAttribute("diContainer", diContainer);
+    }
+
+    @Override
+    public void contextDestroyed(ServletContextEvent sce) {
+        ServletContextListener.super.contextDestroyed(sce);
+        diContainer.destroy();
     }
 }

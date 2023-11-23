@@ -1,6 +1,5 @@
-package by.bsuir.wtlab2.controller.commands.implementations;
+package by.bsuir.wtlab2.controller.commands.implementations.pages;
 
-import by.bsuir.wtlab2.annotations.CommandSecurity;
 import by.bsuir.wtlab2.annotations.WebCommand;
 import by.bsuir.wtlab2.constants.HttpMethod;
 import by.bsuir.wtlab2.controller.commands.Command;
@@ -9,11 +8,10 @@ import by.bsuir.wtlab2.controller.commands.results.JspResult;
 import by.bsuir.wtlab2.exception.CommandException;
 import jakarta.servlet.http.HttpServletRequest;
 
-@CommandSecurity(roles = {"admin", "user"})
-@WebCommand(mapping = "/newQuestion", method = HttpMethod.GET)
-public class NewQuestionPageCommand implements Command {
+@WebCommand(mapping = "/login", method = HttpMethod.GET)
+public final class LogInPageCommand implements Command {
     @Override
     public CommandResult execute(HttpServletRequest request) throws CommandException {
-        return new JspResult("newQuestion");
+        return new JspResult("login");
     }
 }

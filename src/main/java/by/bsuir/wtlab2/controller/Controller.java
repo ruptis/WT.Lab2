@@ -13,17 +13,16 @@ import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import lombok.extern.slf4j.Slf4j;
 
-public class Controller extends HttpServlet {
-    private final transient Logger logger = LoggerFactory.getLogger(Controller.class);
+@Slf4j
+public final class Controller extends HttpServlet {
     private transient Mapper mapper;
 
     @Override
     public void init() throws ServletException {
         super.init();
-        var resolver = DiContainer.getResolver();
+        DiContainer resolver = (DiContainer) getServletContext().getAttribute("diContainer");
         try {
             mapper = resolver.resolve(Mapper.class);
         } catch (DiException e) {
@@ -33,25 +32,25 @@ public class Controller extends HttpServlet {
 
     @Override
     protected void service(HttpServletRequest req, HttpServletResponse resp) {
-        logger.debug("Request: {} {}", req.getMethod(), req.getRequestURI());
+        log.debug("Request: {} {}", req.getMethod(), req.getRequestURI());
         CommandResult result;
         try {
             Command command = mapper.getCommand(req);
-            logger.debug("Command: {}", command.getClass().getName());
+            log.debug("Command: {}", command.getClass().getName());
             result = command.execute(req);
         } catch (MappingException e) {
             result = new NotFoundResult();
-            logger.trace("Failed to map request to command.", e);
+            log.trace("Failed to map request to command.", e);
         } catch (CommandException e) {
             result = new StatusCodeResult(500);
-            logger.trace("Failed to execute command.", e);
+            log.trace("Failed to execute command.", e);
         }
 
-        logger.debug("Result: {}", result.getClass().getName());
+        log.debug("Result: {}", result.getClass().getName());
         try {
             result.executeResult(req, resp);
         } catch (CommandException e) {
-            logger.error("Failed to execute command result.", e);
+            log.error("Failed to execute command result.", e);
         }
     }
 }

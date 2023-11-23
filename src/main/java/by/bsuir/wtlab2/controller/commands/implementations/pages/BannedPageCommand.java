@@ -1,6 +1,6 @@
-package by.bsuir.wtlab2.controller.commands.implementations;
+package by.bsuir.wtlab2.controller.commands.implementations.pages;
 
-
+import by.bsuir.wtlab2.annotations.CommandSecurity;
 import by.bsuir.wtlab2.annotations.WebCommand;
 import by.bsuir.wtlab2.constants.HttpMethod;
 import by.bsuir.wtlab2.controller.commands.Command;
@@ -9,14 +9,13 @@ import by.bsuir.wtlab2.controller.commands.results.JspResult;
 import by.bsuir.wtlab2.exception.CommandException;
 import jakarta.servlet.http.HttpServletRequest;
 
-import java.util.HashMap;
+import static by.bsuir.wtlab2.constants.Role.BANNED;
 
-@WebCommand(mapping = "/hello", method = HttpMethod.GET)
-public class HelloCommand implements Command {
+@CommandSecurity(roles = {BANNED})
+@WebCommand(mapping = "/banned", method = HttpMethod.GET)
+public class BannedPageCommand implements Command {
     @Override
     public CommandResult execute(HttpServletRequest request) throws CommandException {
-        HashMap<String, Object> attributes = new HashMap<>();
-        attributes.put("message", "Hello, World!");
-        return new JspResult("hello", attributes);
+        return new JspResult("banned");
     }
 }

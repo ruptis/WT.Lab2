@@ -24,7 +24,7 @@ public class Mapper {
     }
 
     public Command getCommand(CommandMapping mapping) throws MappingException, CommandException {
-        var commandType = mappings.get(mapping);
+        Class<? extends Command> commandType = mappings.get(mapping);
         if (commandType == null) {
             throw new MappingException("No command for path " + mapping);
         }
@@ -32,7 +32,7 @@ public class Mapper {
     }
 
     public Command getCommand(HttpServletRequest request) throws MappingException, CommandException {
-        var mapping = CommandMapping.of(request);
+        CommandMapping mapping = CommandMapping.of(request);
         return getCommand(mapping);
     }
 }

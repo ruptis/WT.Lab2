@@ -6,7 +6,6 @@ import by.bsuir.wtlab2.controller.commands.Command;
 import by.bsuir.wtlab2.controller.commands.results.CommandResult;
 import by.bsuir.wtlab2.controller.commands.results.JspResult;
 import by.bsuir.wtlab2.controller.commands.results.RedirectResult;
-import by.bsuir.wtlab2.entity.UserDetails;
 import by.bsuir.wtlab2.exception.CommandException;
 import by.bsuir.wtlab2.service.AuthenticationService;
 import jakarta.servlet.http.HttpServletRequest;
@@ -15,31 +14,26 @@ import lombok.extern.slf4j.Slf4j;
 
 import java.util.Collections;
 
-import static by.bsuir.wtlab2.constants.SessionAttributes.USER;
-
 @Slf4j
-@WebCommand(mapping = "/login", method = HttpMethod.POST)
+@WebCommand(mapping = "/register", method = HttpMethod.POST)
 @RequiredArgsConstructor
-public final class LogInCommand implements Command {
+public class RegisterCommand implements Command {
 
     private final AuthenticationService authenticationService;
 
     @Override
     public CommandResult execute(HttpServletRequest request) throws CommandException {
+        String email = request.getParameter("email");
         String username = request.getParameter("username");
         String password = request.getParameter("password");
 
-        log.debug("Login: {}", username);
-
-        AuthenticationService.AuthenticationResult result = authenticationService.authenticate(username, password);
+        AuthenticationService.RegistrationResult result = authenticationService.register(email, username, password);
         if (result.isSuccess()) {
-            UserDetails userDetails = result.getUserDetails();
-            request.getSession().setAttribute(USER.getValue(), userDetails);
-            log.debug("Logged in as {}.", username);
-            return new RedirectResult(userDetails.getRole().getHomePage());
+            log.debug("Registered as {}.", username);
+            return new RedirectResult("/login");
         }
 
-        log.debug("Failed to log in as {}.", username);
-        return new JspResult("login", Collections.singletonMap("error", result.getMessage()));
+        log.debug("Failed to register as {}.", username);
+        return new JspResult("register", Collections.singletonMap("error", result.getMessage()));
     }
 }

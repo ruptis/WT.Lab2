@@ -20,7 +20,7 @@ public class SingletonRegistry {
 
     private void bind(Class<?> implementation) {
         Class<?>[] interfaces = implementation.getInterfaces();
-        for (var interfaceClass : interfaces) {
+        for (Class<?> interfaceClass : interfaces) {
             bind(interfaceClass, implementation);
         }
     }
