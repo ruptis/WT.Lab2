@@ -9,7 +9,7 @@ import by.bsuir.wtlab2.exception.CommandException;
 import jakarta.servlet.http.HttpServletRequest;
 
 @WebCommand(mapping = "/login", method = HttpMethod.GET)
-public final class LogInPageCommand implements Command {
+public final class LoginPageCommand implements Command {
     @Override
     public CommandResult execute(HttpServletRequest request) throws CommandException {
         return new JspResult("login");

@@ -20,7 +20,7 @@ import static by.bsuir.wtlab2.constants.SessionAttributes.USER;
 @Slf4j
 @WebCommand(mapping = "/login", method = HttpMethod.POST)
 @RequiredArgsConstructor
-public final class LogInCommand implements Command {
+public final class LoginCommand implements Command {
 
     private final AuthenticationService authenticationService;
 

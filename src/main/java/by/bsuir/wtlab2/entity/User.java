@@ -19,5 +19,6 @@ public class User implements UserDetails {
     private String password;
     private Role role = USER;
     private Ban ban;
-    
+
+    private int reputation;
 }

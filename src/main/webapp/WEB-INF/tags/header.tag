@@ -8,7 +8,7 @@
 <header>
     <nav class="navbar navbar-expand-sm navbar-light bg-light fixed-top">
         <div class="container">
-            <a class="navbar-brand" href="#">LikeIt</a>
+            <a class="navbar-brand" href="<c:url value="/"/>">LikeIt</a>
 
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -17,27 +17,27 @@
             <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
                 <ul class="navbar-nav">
                     <li class="nav-item">
-                        <a class="nav-link" href="#"><fmt:message key="header.home"/></a>
+                        <a class="nav-link" href="<c:url value="/"/>"><fmt:message key="header.home"/></a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#"><fmt:message key="header.topics"/></a>
+                        <a class="nav-link" href="<c:url value="/topics"/>"><fmt:message key="header.topics"/></a>
                     </li>
                     <c:if test="${user != null && user.role == 'ADMIN'}">
                         <li class="nav-item">
-                            <a class="nav-link" href="#"><fmt:message key="header.users"/></a>
+                            <a class="nav-link" href="<c:url value="/users"/>"><fmt:message key="header.users"/></a>
                         </li>
                     </c:if>
                     <c:if test="${user != null}">
                         <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false" id="navbarProfile">
+                            <a class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-expanded="false" id="navbarProfile">
                                 <fmt:message key="header.profile"/> (${user.username})
                             </a>
                             <ul class="dropdown-menu" aria-labelledby="navbarProfile">
-                                <li><a class="dropdown-item" href="#"><fmt:message key="header.my_profile"/></a></li>
-                                <li><a class="dropdown-item" href="#"><fmt:message key="header.my_questions"/></a></li>
-                                <li><a class="dropdown-item" href="#"><fmt:message key="header.my_answers"/></a></li>
+                                <li><a class="dropdown-item" href="<c:url value="/profile"/>"><fmt:message key="header.my_profile"/></a></li>
+                                <li><a class="dropdown-item" href="<c:url value="/profile?tab=questions#tabs"/>"><fmt:message key="header.my_questions"/></a></li>
+                                <li><a class="dropdown-item" href="<c:url value="/profile?tab=answers#tabs"/>"><fmt:message key="header.my_answers"/></a></li>
                                 <li><hr class="dropdown-divider"></li>
-                                <li><a class="dropdown-item link-danger" href="#"><fmt:message key="header.logout"/></a></li>
+                                <li><a class="dropdown-item link-danger text-danger" href="<c:url value="/logout"/>"><fmt:message key="header.logout"/></a></li>
                             </ul>
                         </li>
                     </c:if>
@@ -51,8 +51,8 @@
                             <fmt:message key="header.lang"/>
                         </a>
                         <ul class="dropdown-menu" aria-labelledby="navbarLang">
-                            <li><a class="dropdown-item" href="#" onclick="changeLocale('en-US')">English</a></li>
-                            <li><a class="dropdown-item" href="#" onclick="changeLocale('ru-RU')">Русский</a></li>
+                            <li><a class="dropdown-item" onclick="changeLocale('en-US')">English</a></li>
+                            <li><a class="dropdown-item" onclick="changeLocale('ru-RU')">Русский</a></li>
                         </ul>
                     </li>
                 </ul>
