@@ -1,6 +1,7 @@
 package by.bsuir.wtlab2.service;
 
 import by.bsuir.wtlab2.entity.Answer;
+import by.bsuir.wtlab2.utils.Page;
 
 import java.util.List;
 import java.util.Optional;
@@ -14,11 +15,17 @@ public interface AnswerService {
 
     Optional<Answer> getAnswer(long id);
 
-    List<Answer> getAllAnswers(int page, int pageSize);
+    Page<Answer> getAllAnswers(int page, int pageSize);
 
-    List<Answer> getAllAnswersByQuestion(long questionId, int page, int pageSize);
+    List<Answer> getAllAnswers();
 
-    List<Answer> getAllAnswersByAuthor(long authorId, int page, int pageSize);
+    Page<Answer> getAllAnswersByQuestion(long questionId, int page, int pageSize);
+
+    List<Answer> getAllAnswersByQuestion(long questionId);
+
+    Page<Answer> getAllAnswersByAuthor(long authorId, int page, int pageSize);
+
+    List<Answer> getAllAnswersByAuthor(long authorId);
 
     void upvote(long id, long userId);
 

@@ -1,6 +1,7 @@
 package by.bsuir.wtlab2.service;
 
 import by.bsuir.wtlab2.entity.User;
+import by.bsuir.wtlab2.utils.Page;
 
 import java.util.List;
 import java.util.Optional;
@@ -12,7 +13,11 @@ public interface UserService {
 
     Optional<User> getUserByUsername(String username);
 
-    List<User> getAllUsers(int page, int pageSize);
+    Optional<User> getUserByEmail(String email);
+
+    Page<User> getAllUsers(int page, int pageSize);
+
+    List<User> getAllUsers();
 
     void banUser(long id);
 

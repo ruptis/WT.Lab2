@@ -1,24 +1,31 @@
 package by.bsuir.wtlab2.service;
 
 import by.bsuir.wtlab2.entity.Question;
+import by.bsuir.wtlab2.utils.Page;
 
 import java.util.List;
 import java.util.Optional;
 
 public interface QuestionService {
-    void addQuestion(String title, String text, long authorId, long topicId);
+    Optional<Question> addQuestion(String title, String text, long authorId, long topicId);
 
-    void deleteQuestion(long id);
+    boolean deleteQuestion(long id);
 
-    void updateQuestion(long id, String title, String text, long topicId);
+    Optional<Question> updateQuestion(long id, String title, String text, long topicId);
 
     Optional<Question> getQuestion(long id);
 
-    List<Question> getAllQuestions(int page, int pageSize);
+    Page<Question> getAllQuestions(int page, int pageSize);
 
-    List<Question> getAllQuestionsByTopic(long topicId, int page, int pageSize);
+    List<Question> getAllQuestions();
 
-    List<Question> getAllQuestionsByAuthor(long authorId, int page, int pageSize);
+    Page<Question> getAllQuestionsByTopic(long topicId, int page, int pageSize);
+
+    List<Question> getAllQuestionsByTopic(long topicId);
+
+    Page<Question> getAllQuestionsByAuthor(long authorId, int page, int pageSize);
+
+    List<Question> getAllQuestionsByAuthor(long authorId);
 
     void addView(long id, long userId);
 }

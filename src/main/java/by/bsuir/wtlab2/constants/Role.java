@@ -6,11 +6,10 @@ import lombok.Getter;
 @Getter
 @AllArgsConstructor
 public enum Role {
-    USER("user", "/"),
-    ADMIN("admin", "/admin"),
-    BANNED("banned", "/banned"),
-    GUEST("guest", "/login");
+    USER("user"),
+    ADMIN("admin"),
+    BANNED("banned"),
+    GUEST("guest");
 
     private final String name;
-    private final String homePage;
 }

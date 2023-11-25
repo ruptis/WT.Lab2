@@ -6,6 +6,8 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.time.LocalDateTime;
+
 import static by.bsuir.wtlab2.constants.Role.USER;
 
 @Data
@@ -13,12 +15,14 @@ import static by.bsuir.wtlab2.constants.Role.USER;
 @AllArgsConstructor
 @NoArgsConstructor
 public class User implements UserDetails {
-    private int id;
+    private long id;
     private String email;
     private String username;
     private String password;
     private Role role = USER;
-    private Ban ban;
 
     private int reputation;
+    private int questionsCount;
+    private int answersCount;
+    private LocalDateTime registrationDate;
 }

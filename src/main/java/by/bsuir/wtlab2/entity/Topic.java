@@ -2,6 +2,8 @@ package by.bsuir.wtlab2.entity;
 
 import lombok.*;
 
+import java.time.LocalDateTime;
+
 @Data
 @Builder
 @AllArgsConstructor
@@ -11,5 +13,5 @@ public class Topic {
     private String name;
     private User author;
     private int questionsCount;
-    private String creationTime;
+    private LocalDateTime creationTime;
 }

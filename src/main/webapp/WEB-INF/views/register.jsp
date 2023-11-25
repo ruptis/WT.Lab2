@@ -1,6 +1,9 @@
 <%@ taglib prefix="t" tagdir="/WEB-INF/tags" %>
 <%@ taglib prefix="c" uri="jakarta.tags.core" %>
+<%@ taglib prefix="fmt" uri="jakarta.tags.fmt" %>
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
+<fmt:setLocale value="${sessionScope.locale}"/>
+<fmt:setBundle basename="messages"/>
 
 <t:basepage title="Login">
     <jsp:body>
@@ -11,22 +14,22 @@
                     <div class="row">
                         <form action="<c:url value="/register"/>" method="post">
                             <div class="form-group">
-                                <label for="email">Email</label>
-                                <input type="email" class="form-control" id="email" name="email" placeholder="Email">
+                                <label for="email"><fmt:message key="email"/></label>
+                                <input type="email" class="form-control" id="email" name="email" placeholder="<fmt:message key="email"/>">
                             </div>
                             <div class="form-group">
-                                <label for="username">Username</label>
+                                <label for="username"><fmt:message key="username"/></label>
                                 <input type="text" class="form-control" id="username" name="username"
-                                       placeholder="Username">
+                                       placeholder="<fmt:message key="username"/>">
                             </div>
                             <div class="form-group">
-                                <label for="password">Password</label>
+                                <label for="password"><fmt:message key="password"/></label>
                                 <input type="password" class="form-control" id="password" name="password"
-                                       placeholder="Password">
+                                       placeholder="<fmt:message key="password"/>">
                             </div>
                             <div class="form-group mt-3 d-flex justify-content-between align-items-center">
-                                <button type="submit" class="btn btn-primary px-5">Register</button>
-                                <a href="<c:url value="/login"/>" class="text-decoration-none">Login</a>
+                                <button type="submit" class="btn btn-primary px-5"><fmt:message key="register"/></button>
+                                <a href="<c:url value="/login"/>" class="text-decoration-none"><fmt:message key="login"/></a>
                             </div>
                             <c:if test="${not empty requestScope.error}">
                                 <div class="alert alert-danger mt-3" role="alert">${requestScope.error}</div>

@@ -5,15 +5,17 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.time.LocalDateTime;
+
 @Data
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
 public class Answer {
-    private int id;
+    private long id;
     private String text;
     private User author;
     private Question question;
     private int reputation;
-    private String answerTime;
+    private LocalDateTime answerTime;
 }

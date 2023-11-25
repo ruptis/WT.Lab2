@@ -23,15 +23,19 @@ public class Mapper {
         mappings.put(mapping, commandType);
     }
 
-    public Command getCommand(CommandMapping mapping) throws MappingException, CommandException {
+    public Command getCommand(CommandMapping mapping) throws MappingException {
         Class<? extends Command> commandType = mappings.get(mapping);
         if (commandType == null) {
             throw new MappingException("No command for path " + mapping);
         }
-        return commandFactory.createCommand(commandType);
+        try {
+            return commandFactory.createCommand(commandType);
+        } catch (CommandException e) {
+            throw new MappingException("Failed to create command for path " + mapping);
+        }
     }
 
-    public Command getCommand(HttpServletRequest request) throws MappingException, CommandException {
+    public Command getCommand(HttpServletRequest request) throws MappingException {
         CommandMapping mapping = CommandMapping.of(request);
         return getCommand(mapping);
     }

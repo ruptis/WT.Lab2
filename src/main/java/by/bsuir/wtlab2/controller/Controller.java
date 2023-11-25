@@ -2,9 +2,9 @@ package by.bsuir.wtlab2.controller;
 
 import by.bsuir.wtlab2.application.di.DiContainer;
 import by.bsuir.wtlab2.controller.commands.Command;
-import by.bsuir.wtlab2.controller.commands.results.CommandResult;
-import by.bsuir.wtlab2.controller.commands.results.NotFoundResult;
-import by.bsuir.wtlab2.controller.commands.results.StatusCodeResult;
+import by.bsuir.wtlab2.controller.commands.CommandResult;
+import by.bsuir.wtlab2.controller.commands.implementations.results.NotFoundResult;
+import by.bsuir.wtlab2.controller.commands.implementations.results.StatusCodeResult;
 import by.bsuir.wtlab2.exception.CommandException;
 import by.bsuir.wtlab2.exception.DiException;
 import by.bsuir.wtlab2.exception.MappingException;
@@ -40,10 +40,10 @@ public final class Controller extends HttpServlet {
             result = command.execute(req);
         } catch (MappingException e) {
             result = new NotFoundResult();
-            log.trace("Failed to map request to command.", e);
+            log.info("Failed to map request to command.", e);
         } catch (CommandException e) {
             result = new StatusCodeResult(500);
-            log.trace("Failed to execute command.", e);
+            log.info("Failed to execute command.", e);
         }
 
         log.debug("Result: {}", result.getClass().getName());

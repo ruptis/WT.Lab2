@@ -5,6 +5,7 @@ import org.reflections.Reflections;
 import java.lang.annotation.Annotation;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Set;
 
 public class ClassScanner {
     private ClassScanner() {
@@ -12,9 +13,9 @@ public class ClassScanner {
 
     public static List<Class<?>> scan(String packageName, Class<? extends Annotation> annotation) {
         List<Class<?>> classes = new ArrayList<>();
-        var reflections = new Reflections(packageName);
-        var annotated = reflections.getTypesAnnotatedWith(annotation);
-        for (var c : annotated) {
+        Reflections reflections = new Reflections(packageName);
+        Set<Class<?>> annotated = reflections.getTypesAnnotatedWith(annotation);
+        for (Class<?> c : annotated) {
             if (c.isInterface()) {
                 continue;
             }

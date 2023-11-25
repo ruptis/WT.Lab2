@@ -1,18 +1,21 @@
 package by.bsuir.wtlab2.service;
 
 import by.bsuir.wtlab2.entity.Topic;
+import by.bsuir.wtlab2.utils.Page;
 
 import java.util.List;
 import java.util.Optional;
 
 public interface TopicService {
-    void addTopic(String title, long authorId);
+    Optional<Topic> addTopic(String title, long authorId);
 
-    void deleteTopic(long id);
+    boolean deleteTopic(long id);
 
-    void updateTopic(long id, String title);
+    Optional<Topic> updateTopic(long id, String title);
 
     Optional<Topic> getTopic(long id);
 
-    List<Topic> getAllTopics(int page, int pageSize);
+    Page<Topic> getAllTopics(int page, int pageSize);
+
+    List<Topic> getAllTopics();
 }

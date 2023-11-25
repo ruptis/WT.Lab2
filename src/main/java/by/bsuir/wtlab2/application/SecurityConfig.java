@@ -20,3 +20,4 @@ public class SecurityConfig {
         return commandRoles.get(mapping);
     }
 }
+

@@ -15,7 +15,7 @@ import lombok.extern.slf4j.Slf4j;
 import java.io.IOException;
 
 import static by.bsuir.wtlab2.constants.Role.GUEST;
-import static by.bsuir.wtlab2.constants.SessionAttributes.USER;
+import static by.bsuir.wtlab2.constants.SessionAttributes.USER_DETAILS;
 
 @Slf4j
 public final class SecurityFilter implements Filter {
@@ -42,7 +42,7 @@ public final class SecurityFilter implements Filter {
 
         if (securityService.isSecured(mapping) && !isAllowed(request, mapping)) {
             log.debug("Unauthorized access to {}", request.getRequestURI());
-            response.sendRedirect("/login");
+            response.sendError(HttpServletResponse.SC_FORBIDDEN);
         } else {
             log.debug("Access to {} is allowed", request.getRequestURI());
             filterChain.doFilter(servletRequest, servletResponse);
@@ -60,7 +60,7 @@ public final class SecurityFilter implements Filter {
     }
 
     private static Role getRole(HttpSession session, Role role) {
-        UserDetails userDetails = (UserDetails) session.getAttribute(USER.getValue());
+        UserDetails userDetails = (UserDetails) session.getAttribute(USER_DETAILS.getValue());
         if (userDetails != null) {
             role = userDetails.getRole();
         }

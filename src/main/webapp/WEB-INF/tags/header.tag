@@ -33,9 +33,9 @@
                                 <fmt:message key="header.profile"/> (${user.username})
                             </a>
                             <ul class="dropdown-menu" aria-labelledby="navbarProfile">
-                                <li><a class="dropdown-item" href="<c:url value="/profile"/>"><fmt:message key="header.my_profile"/></a></li>
-                                <li><a class="dropdown-item" href="<c:url value="/profile?tab=questions#tabs"/>"><fmt:message key="header.my_questions"/></a></li>
-                                <li><a class="dropdown-item" href="<c:url value="/profile?tab=answers#tabs"/>"><fmt:message key="header.my_answers"/></a></li>
+                                <li><a class="dropdown-item" href="<c:url value="/profile?id=${user.id}"/>"><fmt:message key="header.my_profile"/></a></li>
+                                <li><a class="dropdown-item" href="<c:url value="/profile?id=${user.id}&tab=questions#tabs"/>"><fmt:message key="header.my_questions"/></a></li>
+                                <li><a class="dropdown-item" href="<c:url value="/profile?id=${user.id}&tab=answers#tabs"/>"><fmt:message key="header.my_answers"/></a></li>
                                 <li><hr class="dropdown-divider"></li>
                                 <li><a class="dropdown-item link-danger text-danger" href="<c:url value="/logout"/>"><fmt:message key="header.logout"/></a></li>
                             </ul>

@@ -6,7 +6,7 @@ import lombok.Getter;
 @Getter
 @AllArgsConstructor
 public enum SessionAttributes {
-    USER("user"),
+    USER_DETAILS("user"),
     LOCALE("locale");
 
     private final String value;
