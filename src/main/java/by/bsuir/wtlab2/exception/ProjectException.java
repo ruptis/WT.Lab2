@@ -1,5 +1,8 @@
 package by.bsuir.wtlab2.exception;
 
+import lombok.Getter;
+
+@Getter
 public class ProjectException extends Exception {
     private final Exception innerException;
 
@@ -13,7 +16,8 @@ public class ProjectException extends Exception {
         this.innerException = innerException;
     }
 
-    public Exception getInnerException() {
-        return innerException;
+    public ProjectException(Exception innerException) {
+        super(innerException);
+        this.innerException = innerException;
     }
 }

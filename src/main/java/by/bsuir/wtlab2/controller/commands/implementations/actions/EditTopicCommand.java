@@ -9,6 +9,7 @@ import by.bsuir.wtlab2.controller.commands.implementations.results.OkResult;
 import by.bsuir.wtlab2.controller.commands.implementations.results.StatusCodeResult;
 import by.bsuir.wtlab2.entity.Topic;
 import by.bsuir.wtlab2.exception.CommandException;
+import by.bsuir.wtlab2.exception.ServiceException;
 import by.bsuir.wtlab2.service.TopicService;
 import jakarta.servlet.http.HttpServletRequest;
 import lombok.RequiredArgsConstructor;
@@ -32,9 +33,15 @@ public class EditTopicCommand implements Command {
         String title = request.getParameter("title");
         log.trace("Edit topic: id = {}, title = {}", topicId, title);
 
-        Optional<Topic> updatedTopic = topicService.updateTopic(topicId, title);
-        log.debug("Updated topic: {}", updatedTopic);
+        Optional<Topic> updatedTopic;
+        try {
+            updatedTopic = topicService.updateTopic(topicId, title);
+        } catch (ServiceException e) {
+            log.error("Failed to update topic", e);
+            throw new CommandException("Failed to update topic", e);
+        }
 
+        log.debug("Updated topic: {}", updatedTopic);
         return updatedTopic.isPresent()
                 ? new OkResult()
                 : new StatusCodeResult(500);

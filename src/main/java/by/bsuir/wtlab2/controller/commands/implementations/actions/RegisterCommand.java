@@ -7,6 +7,7 @@ import by.bsuir.wtlab2.controller.commands.CommandResult;
 import by.bsuir.wtlab2.controller.commands.implementations.results.JspResult;
 import by.bsuir.wtlab2.controller.commands.implementations.results.RedirectResult;
 import by.bsuir.wtlab2.exception.CommandException;
+import by.bsuir.wtlab2.exception.RegistrationException;
 import by.bsuir.wtlab2.service.AuthenticationService;
 import jakarta.servlet.http.HttpServletRequest;
 import lombok.RequiredArgsConstructor;
@@ -27,13 +28,14 @@ public class RegisterCommand implements Command {
         String username = request.getParameter("username");
         String password = request.getParameter("password");
 
-        AuthenticationService.RegistrationResult result = authenticationService.register(email, username, password);
-        if (result.isSuccess()) {
-            log.debug("Registered as {}.", username);
-            return new RedirectResult("/login");
+        try {
+            authenticationService.register(email, username, password);
+        } catch (RegistrationException e) {
+            log.debug("Failed to register as {}.", username);
+            return new JspResult("register", Collections.singletonMap("error", e.getMessage()));
         }
 
-        log.debug("Failed to register as {}.", username);
-        return new JspResult("register", Collections.singletonMap("error", result.getMessage()));
+        log.debug("Registered as {}.", username);
+        return new RedirectResult("/login");
     }
 }

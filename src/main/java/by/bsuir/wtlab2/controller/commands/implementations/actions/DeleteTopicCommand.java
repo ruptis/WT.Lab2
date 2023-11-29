@@ -8,6 +8,7 @@ import by.bsuir.wtlab2.controller.commands.CommandResult;
 import by.bsuir.wtlab2.controller.commands.implementations.results.OkResult;
 import by.bsuir.wtlab2.controller.commands.implementations.results.StatusCodeResult;
 import by.bsuir.wtlab2.exception.CommandException;
+import by.bsuir.wtlab2.exception.ServiceException;
 import by.bsuir.wtlab2.service.TopicService;
 import jakarta.servlet.http.HttpServletRequest;
 import lombok.RequiredArgsConstructor;
@@ -26,7 +27,15 @@ public class DeleteTopicCommand implements Command {
     @Override
     public CommandResult execute(HttpServletRequest request) throws CommandException {
         int topicId = Integer.parseInt(request.getParameter("id"));
-        boolean isDeleted = topicService.deleteTopic(topicId);
+
+        boolean isDeleted;
+        try {
+            isDeleted = topicService.deleteTopic(topicId);
+        } catch (ServiceException e) {
+            log.error("Failed to delete topic", e);
+            throw new CommandException("Failed to delete topic", e);
+        }
+
         log.debug("Topic with id = {} was deleted: {}", topicId, isDeleted);
         return isDeleted
                 ? new OkResult()

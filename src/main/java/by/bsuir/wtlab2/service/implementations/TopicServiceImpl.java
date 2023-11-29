@@ -1,75 +1,97 @@
 package by.bsuir.wtlab2.service.implementations;
 
 import by.bsuir.wtlab2.annotations.Singleton;
+import by.bsuir.wtlab2.dao.TopicDAO;
 import by.bsuir.wtlab2.entity.Topic;
+import by.bsuir.wtlab2.entity.User;
+import by.bsuir.wtlab2.exception.DAOException;
+import by.bsuir.wtlab2.exception.ServiceException;
 import by.bsuir.wtlab2.service.TopicService;
-import by.bsuir.wtlab2.service.UserService;
 import by.bsuir.wtlab2.utils.Page;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 
 import java.time.LocalDateTime;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
+@Slf4j
 @Singleton
 @RequiredArgsConstructor
 public class TopicServiceImpl implements TopicService {
 
-    private final UserService userService;
-
-    private final List<Topic> topics = new ArrayList<>();
+    private final TopicDAO topicDAO;
 
     @Override
-    public Optional<Topic> addTopic(String title, long authorId) {
+    public boolean addTopic(String title, long authorId) throws ServiceException {
         Topic topic = Topic.builder()
-                .id(topics.size() + 1)
                 .name(title)
-                .author(userService.getUserById(authorId).orElseThrow())
+                .name(title)
+                .author(User.builder().id(authorId).build())
                 .creationTime(LocalDateTime.now())
+                .questionsCount(0)
                 .build();
-        topics.add(topic);
-        return Optional.of(topic);
-
+        try {
+            topicDAO.save(topic);
+        } catch (DAOException e) {
+            log.error("Failed to add topic", e);
+            throw new ServiceException("Failed to add topic", e);
+        }
+        return true;
     }
 
     @Override
-    public boolean deleteTopic(long id) {
-        return topics.removeIf(topic -> topic.getId() == id);
+    public boolean deleteTopic(long id) throws ServiceException {
+        boolean deleted;
+        try {
+            deleted = topicDAO.delete(id);
+        } catch (DAOException e) {
+            log.error("Failed to delete topic", e);
+            throw new ServiceException("Failed to delete topic", e);
+        }
+        return deleted;
     }
 
     @Override
-    public Optional<Topic> updateTopic(long id, String title) {
-        Topic topic = topics.stream()
-                .filter(t -> t.getId() == id)
-                .findFirst()
-                .orElseThrow();
-        topic.setName(title);
-        return Optional.of(topic);
+    public Optional<Topic> updateTopic(long id, String title) throws ServiceException {
+        Optional<Topic> topic = getTopic(id);
+        topic.ifPresent(t -> t.setName(title));
+        try {
+            topicDAO.update(topic.orElseThrow());
+            return topic;
+        } catch (DAOException e) {
+            log.error("Failed to update topic", e);
+            throw new ServiceException("Failed to update topic", e);
+        }
     }
 
     @Override
-    public Optional<Topic> getTopic(long id) {
-        return topics.stream()
-                .filter(topic -> topic.getId() == id)
-                .findFirst();
+    public Optional<Topic> getTopic(long id) throws ServiceException {
+        try {
+            return topicDAO.getById(id);
+        } catch (DAOException e) {
+            log.error("Failed to get topic by id", e);
+            throw new ServiceException("Failed to get topic by id", e);
+        }
     }
 
     @Override
-    public Page<Topic> getAllTopics(int page, int pageSize) {
-        int fromIndex = (page - 1) * pageSize;
-        int toIndex = Math.min(fromIndex + pageSize, topics.size());
-        return Page.<Topic>builder()
-                .content(topics.subList(fromIndex, toIndex))
-                .pageNumber(page)
-                .pageSize(pageSize)
-                .totalPages((topics.size() + pageSize - 1) / pageSize)
-                .totalElements(topics.size())
-                .build();
+    public Page<Topic> getAllTopics(int page, int pageSize) throws ServiceException {
+        try {
+            return topicDAO.getAll(page, pageSize);
+        } catch (DAOException e) {
+            log.error("Failed to get all topics", e);
+            throw new ServiceException("Failed to get all topics", e);
+        }
     }
 
     @Override
-    public List<Topic> getAllTopics() {
-        return topics;
+    public List<Topic> getAllTopics() throws ServiceException {
+        try {
+            return topicDAO.getAll();
+        } catch (DAOException e) {
+            log.error("Failed to get all topics", e);
+            throw new ServiceException("Failed to get all topics", e);
+        }
     }
 }

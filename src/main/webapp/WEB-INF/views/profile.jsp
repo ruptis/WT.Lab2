@@ -1,4 +1,6 @@
 <%@ taglib prefix="t" tagdir="/WEB-INF/tags" %>
+<%@ taglib prefix="common" tagdir="/WEB-INF/tags/common" %>
+<%@ taglib prefix="p" tagdir="/WEB-INF/tags/profile" %>
 <%@ taglib prefix="c" uri="jakarta.tags.core" %>
 <%@ taglib prefix="fmt" uri="jakarta.tags.fmt" %>
 <%@ page contentType="text/html;charset=UTF-8" %>
@@ -33,11 +35,11 @@
 
             <div class="tab-content">
                 <div class="tab-pane fade <c:if test="${requestScope.tab == 'questions'}">show active</c:if>"  id="questions">
-                    <t:questionCardsList questions="${requestScope.questions.content}"/>
+                    <common:questionCardsList questions="${requestScope.questions.content}"/>
                     <t:pagination url="/profile?id=${requestScope.user.id}&tab=questions" page="${requestScope.questions}" id="Questions"/>
                 </div>
                 <div class="tab-pane fade <c:if test="${requestScope.tab == 'answers'}">show active</c:if>" id="answers">
-                    <t:profileAnswersList answers="${requestScope.answers.content}"/>
+                    <p:profileAnswersList answers="${requestScope.answers.content}"/>
                     <t:pagination url="/profile?id=${requestScope.user.id}&tab=answers" page="${requestScope.answers}" id="Answers"/>
                 </div>
             </div>

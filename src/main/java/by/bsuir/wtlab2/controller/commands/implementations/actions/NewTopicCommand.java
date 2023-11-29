@@ -7,15 +7,13 @@ import by.bsuir.wtlab2.controller.commands.Command;
 import by.bsuir.wtlab2.controller.commands.CommandResult;
 import by.bsuir.wtlab2.controller.commands.implementations.results.RedirectResult;
 import by.bsuir.wtlab2.controller.commands.implementations.results.StatusCodeResult;
-import by.bsuir.wtlab2.entity.Topic;
 import by.bsuir.wtlab2.exception.CommandException;
+import by.bsuir.wtlab2.exception.ServiceException;
 import by.bsuir.wtlab2.service.TopicService;
-import by.bsuir.wtlab2.utils.SessionUtil;
+import by.bsuir.wtlab2.utils.RequestUtil;
 import jakarta.servlet.http.HttpServletRequest;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-
-import java.util.Optional;
 
 import static by.bsuir.wtlab2.constants.Role.ADMIN;
 
@@ -29,14 +27,20 @@ public class NewTopicCommand implements Command {
 
     @Override
     public CommandResult execute(HttpServletRequest request) throws CommandException {
-        long authorId = SessionUtil.getAuthorId(request);
+        long authorId = RequestUtil.getAuthorId(request);
         String title = request.getParameter("title");
         log.trace("New topic: title = {}, authorId = {}", title, authorId);
 
-        Optional<Topic> newTopic = topicService.addTopic(title, authorId);
-        log.debug("New topic: {}", newTopic);
+        boolean isAdded;
+        try {
+            isAdded = topicService.addTopic(title, authorId);
+        } catch (ServiceException e) {
+            log.error("Failed to add topic", e);
+            throw new CommandException("Failed to add topic", e);
+        }
 
-        return newTopic.isPresent()
+
+        return isAdded
                 ? new RedirectResult("/topics")
                 : new StatusCodeResult(500);
     }

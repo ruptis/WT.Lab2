@@ -14,12 +14,15 @@ import java.util.List;
 public class Page<T> {
     private int pageNumber;
     private int pageSize;
-    private int totalPages;
     private int totalElements;
     private List<T> content;
 
+    public int getTotalPages() {
+        return (int) Math.ceil((double) totalElements / pageSize);
+    }
+
     public boolean hasNextPage() {
-        return pageNumber < totalPages;
+        return pageNumber < getTotalPages();
     }
 
     public boolean hasPreviousPage() {

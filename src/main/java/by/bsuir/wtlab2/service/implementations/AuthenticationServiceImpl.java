@@ -2,56 +2,66 @@ package by.bsuir.wtlab2.service.implementations;
 
 import by.bsuir.wtlab2.annotations.Singleton;
 import by.bsuir.wtlab2.entity.User;
+import by.bsuir.wtlab2.entity.UserDetails;
+import by.bsuir.wtlab2.exception.AuthenticationException;
+import by.bsuir.wtlab2.exception.RegistrationException;
+import by.bsuir.wtlab2.exception.ServiceException;
 import by.bsuir.wtlab2.service.AuthenticationService;
+import by.bsuir.wtlab2.service.PasswordHasher;
 import by.bsuir.wtlab2.service.UserService;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 
 import java.util.Optional;
 
+@Slf4j
 @Singleton
 @RequiredArgsConstructor
 public class AuthenticationServiceImpl implements AuthenticationService {
 
+    private final PasswordHasher passwordHasher;
     private final UserService userService;
 
     @Override
-    public AuthenticationResult authenticate(String username, String password) {
-        Optional<User> userOptional = userService.getUserByUsername(username);
+    public UserDetails authenticate(String username, String password) throws AuthenticationException {
+        Optional<User> userOptional;
+        try {
+            userOptional = userService.getUserByUsername(username);
+        } catch (ServiceException e) {
+            log.error("Cannot get user by username", e);
+            throw new AuthenticationException("Cannot get user by username", e);
+        }
         if (userOptional.isPresent()) {
             User user = userOptional.get();
-            if (user.getPassword().equals(password)) {
-                return AuthenticationResult.builder()
-                        .success(true)
-                        .userDetails(user)
-                        .build();
+            if (passwordHasher.check(password, user.getPassword())) {
+                return user;
             }
-            return AuthenticationResult.builder()
-                    .success(false)
-                    .message("Invalid password.")
-                    .build();
+            log.debug("Invalid password");
+            throw new AuthenticationException("Invalid password.");
         }
-        return AuthenticationResult.builder()
-                .success(false)
-                .message("Invalid username.")
-                .build();
+        log.debug("User not found");
+        throw new AuthenticationException("User not found.");
     }
 
     @Override
-    public RegistrationResult register(String email, String username, String password) {
-        if (userService.getUserByUsername(username).isPresent()) {
-            return RegistrationResult.builder()
-                    .success(false)
-                    .message("Username already taken.")
-                    .build();
-        } else if (userService.getUserByEmail(email).isPresent()) {
-            return RegistrationResult.builder()
-                    .success(false)
-                    .message("Email already taken.")
-                    .build();
+    public void register(String email, String username, String password) throws RegistrationException {
+        try {
+            if (userService.getUserByUsername(username).isPresent()) {
+                throw new RegistrationException("Username already taken.");
+            } else if (userService.getUserByEmail(email).isPresent()) {
+                throw new RegistrationException("Email already taken.");
+            }
+        } catch (ServiceException e) {
+            log.error("Cannot register user", e);
+            throw new RegistrationException("Cannot register user", e);
         }
-        userService.addUser(username, password, email);
-        return RegistrationResult.builder()
-                .success(true)
-                .build();
+
+        String hashedPassword = passwordHasher.hash(password);
+        try {
+            userService.addUser(username, hashedPassword, email);
+        } catch (ServiceException e) {
+            log.error("Cannot register user", e);
+            throw new RegistrationException("Cannot register user", e);
+        }
     }
 }

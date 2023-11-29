@@ -9,106 +9,113 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a02cc351-cb5d-4017-a60b-834018914fb6" name="Changes" comment="Services and entities">
-      <change afterPath="$PROJECT_DIR$/src/main/java/by/bsuir/wtlab2/controller/commands/implementations/actions/DeleteQuestionCommand.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/by/bsuir/wtlab2/controller/commands/implementations/actions/DeleteTopicCommand.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/by/bsuir/wtlab2/controller/commands/implementations/actions/EditQuestionCommand.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/by/bsuir/wtlab2/controller/commands/implementations/actions/EditTopicCommand.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/by/bsuir/wtlab2/controller/commands/implementations/actions/NewQuestionCommand.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/by/bsuir/wtlab2/controller/commands/implementations/actions/NewTopicCommand.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/by/bsuir/wtlab2/controller/commands/implementations/actions/UserBanCommand.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/by/bsuir/wtlab2/controller/commands/implementations/actions/UserUnbanCommand.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/by/bsuir/wtlab2/controller/commands/implementations/pages/QuestionPageCommand.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/by/bsuir/wtlab2/controller/commands/implementations/pages/TopicPageCommand.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/by/bsuir/wtlab2/controller/commands/implementations/pages/TopicsPageCommand.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/by/bsuir/wtlab2/controller/commands/implementations/pages/UsersPageCommand.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/by/bsuir/wtlab2/mapper/QuestionMapper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/by/bsuir/wtlab2/service/implementations/AnswerServiceImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/by/bsuir/wtlab2/service/implementations/QuestionServiceImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/by/bsuir/wtlab2/service/implementations/TopicServiceImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/by/bsuir/wtlab2/service/implementations/UserServiceImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/by/bsuir/wtlab2/utils/DateUtil.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/by/bsuir/wtlab2/utils/Page.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/by/bsuir/wtlab2/utils/SessionUtil.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/functions.tld" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/tags/answer.tag" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/tags/askButton.tag" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/tags/createTopicButton.tag" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/tags/createTopicModal.tag" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/tags/deleteQuestionModal.tag" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/tags/deleteTopicModal.tag" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/tags/editTopicModal.tag" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/tags/profileAnswer.tag" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/tags/profileAnswersList.tag" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/tags/questionActionButtons.tag" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/tags/questionCard.tag" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/tags/questionCardsList.tag" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/tags/topicActionsButtons.tag" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/tags/topicCard.tag" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/tags/topicQuestionCard.tag" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/tags/userCard.tag" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/403.jsp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/500.jsp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/question.jsp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/topic.jsp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/topics.jsp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/users.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/jsLibraryMappings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/jsLibraryMappings.xml" afterDir="false" />
+    <list default="true" id="a02cc351-cb5d-4017-a60b-834018914fb6" name="Changes" comment="Pages with pagination">
+      <change afterPath="$PROJECT_DIR$/src/main/java/by/bsuir/wtlab2/controller/commands/implementations/actions/DownvoteAnswerCommand.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/by/bsuir/wtlab2/controller/commands/implementations/actions/NewAnswerCommand.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/by/bsuir/wtlab2/controller/commands/implementations/actions/UnvoteAnswerCommand.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/by/bsuir/wtlab2/controller/commands/implementations/actions/UpvoteAnswerCommand.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/by/bsuir/wtlab2/dao/AnswerDAO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/by/bsuir/wtlab2/dao/QuestionDAO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/by/bsuir/wtlab2/dao/TopicDAO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/by/bsuir/wtlab2/dao/UserDAO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/by/bsuir/wtlab2/dao/ViewDAO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/by/bsuir/wtlab2/dao/VoteDAO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/by/bsuir/wtlab2/dao/connection/ConnectionFactory.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/by/bsuir/wtlab2/dao/connection/DAOProperties.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/by/bsuir/wtlab2/dao/connection/DataSource.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/by/bsuir/wtlab2/dao/connection/implementations/ConnectionFactoryImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/by/bsuir/wtlab2/dao/connection/implementations/PooledDataSource.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/by/bsuir/wtlab2/dao/connection/pool/ConnectionPool.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/by/bsuir/wtlab2/dao/connection/pool/PooledConnection.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/by/bsuir/wtlab2/dao/implementations/AnswerDAOImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/by/bsuir/wtlab2/dao/implementations/QuestionDAOImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/by/bsuir/wtlab2/dao/implementations/TopicDAOImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/by/bsuir/wtlab2/dao/implementations/UserDAOImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/by/bsuir/wtlab2/dao/implementations/ViewDAOImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/by/bsuir/wtlab2/dao/implementations/VoteDAOImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/by/bsuir/wtlab2/entity/Vote.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/by/bsuir/wtlab2/entitymapper/EntityMapper.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/by/bsuir/wtlab2/entitymapper/implementations/AnswerMapper.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/by/bsuir/wtlab2/entitymapper/implementations/QuestionMapper.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/by/bsuir/wtlab2/entitymapper/implementations/TopicMapper.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/by/bsuir/wtlab2/entitymapper/implementations/UserMapper.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/by/bsuir/wtlab2/entitymapper/implementations/VoteMapper.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/by/bsuir/wtlab2/exception/AuthenticationException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/by/bsuir/wtlab2/exception/ConnectionException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/by/bsuir/wtlab2/exception/DAOConfigurationException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/by/bsuir/wtlab2/exception/DAOException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/by/bsuir/wtlab2/exception/RegistrationException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/by/bsuir/wtlab2/exception/ServiceException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/by/bsuir/wtlab2/service/PasswordHasher.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/by/bsuir/wtlab2/service/VoteService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/by/bsuir/wtlab2/service/implementations/PasswordHasherImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/by/bsuir/wtlab2/service/implementations/VoteServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/by/bsuir/wtlab2/utils/CountConsumer.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/by/bsuir/wtlab2/utils/DAOUtil.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/by/bsuir/wtlab2/utils/ServiceUtil.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/database.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/by/bsuir/wtlab2/application/SecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/by/bsuir/wtlab2/application/SecurityConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/by/bsuir/wtlab2/constants/HttpMethod.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/by/bsuir/wtlab2/constants/HttpMethod.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/by/bsuir/wtlab2/constants/Role.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/by/bsuir/wtlab2/constants/Role.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/by/bsuir/wtlab2/constants/SessionAttributes.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/by/bsuir/wtlab2/constants/SessionAttributes.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/by/bsuir/wtlab2/controller/Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/by/bsuir/wtlab2/controller/Controller.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/by/bsuir/wtlab2/controller/commands/Command.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/by/bsuir/wtlab2/controller/commands/Command.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/by/bsuir/wtlab2/controller/commands/implementations/ChangeLocaleCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/by/bsuir/wtlab2/controller/commands/implementations/actions/ChangeLocaleCommand.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/by/bsuir/wtlab2/controller/commands/implementations/LoginCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/by/bsuir/wtlab2/controller/commands/implementations/actions/LoginCommand.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/by/bsuir/wtlab2/controller/commands/implementations/LogoutCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/by/bsuir/wtlab2/controller/commands/implementations/actions/LogoutCommand.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/by/bsuir/wtlab2/controller/commands/implementations/RegisterCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/by/bsuir/wtlab2/controller/commands/implementations/actions/RegisterCommand.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/by/bsuir/wtlab2/controller/commands/implementations/pages/BannedPageCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/by/bsuir/wtlab2/controller/commands/implementations/pages/BannedPageCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/by/bsuir/wtlab2/controller/commands/implementations/actions/DeleteQuestionCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/by/bsuir/wtlab2/controller/commands/implementations/actions/DeleteQuestionCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/by/bsuir/wtlab2/controller/commands/implementations/actions/DeleteTopicCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/by/bsuir/wtlab2/controller/commands/implementations/actions/DeleteTopicCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/by/bsuir/wtlab2/controller/commands/implementations/actions/EditQuestionCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/by/bsuir/wtlab2/controller/commands/implementations/actions/EditQuestionCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/by/bsuir/wtlab2/controller/commands/implementations/actions/EditTopicCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/by/bsuir/wtlab2/controller/commands/implementations/actions/EditTopicCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/by/bsuir/wtlab2/controller/commands/implementations/actions/LoginCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/by/bsuir/wtlab2/controller/commands/implementations/actions/LoginCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/by/bsuir/wtlab2/controller/commands/implementations/actions/LogoutCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/by/bsuir/wtlab2/controller/commands/implementations/actions/LogoutCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/by/bsuir/wtlab2/controller/commands/implementations/actions/NewQuestionCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/by/bsuir/wtlab2/controller/commands/implementations/actions/NewQuestionCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/by/bsuir/wtlab2/controller/commands/implementations/actions/NewTopicCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/by/bsuir/wtlab2/controller/commands/implementations/actions/NewTopicCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/by/bsuir/wtlab2/controller/commands/implementations/actions/RegisterCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/by/bsuir/wtlab2/controller/commands/implementations/actions/RegisterCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/by/bsuir/wtlab2/controller/commands/implementations/actions/UserBanCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/by/bsuir/wtlab2/controller/commands/implementations/actions/UserBanCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/by/bsuir/wtlab2/controller/commands/implementations/actions/UserUnbanCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/by/bsuir/wtlab2/controller/commands/implementations/actions/UserUnbanCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/by/bsuir/wtlab2/controller/commands/implementations/pages/BannedPageCommand.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/by/bsuir/wtlab2/controller/commands/implementations/pages/HomePageCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/by/bsuir/wtlab2/controller/commands/implementations/pages/HomePageCommand.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/by/bsuir/wtlab2/controller/commands/implementations/pages/LoginPageCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/by/bsuir/wtlab2/controller/commands/implementations/pages/LoginPageCommand.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/by/bsuir/wtlab2/controller/commands/implementations/pages/ProfilePageCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/by/bsuir/wtlab2/controller/commands/implementations/pages/ProfilePageCommand.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/by/bsuir/wtlab2/controller/commands/implementations/pages/RegisterPageCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/by/bsuir/wtlab2/controller/commands/implementations/pages/RegisterPageCommand.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/by/bsuir/wtlab2/controller/commands/results/CommandResult.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/by/bsuir/wtlab2/controller/commands/CommandResult.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/by/bsuir/wtlab2/controller/commands/results/ForwardResult.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/by/bsuir/wtlab2/controller/commands/implementations/results/ForwardResult.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/by/bsuir/wtlab2/controller/commands/results/JsonResult.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/by/bsuir/wtlab2/controller/commands/implementations/results/JsonResult.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/by/bsuir/wtlab2/controller/commands/results/JspResult.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/by/bsuir/wtlab2/controller/commands/implementations/results/JspResult.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/by/bsuir/wtlab2/controller/commands/results/NotFoundResult.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/by/bsuir/wtlab2/controller/commands/implementations/results/NotFoundResult.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/by/bsuir/wtlab2/controller/commands/results/OkResult.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/by/bsuir/wtlab2/controller/commands/implementations/results/OkResult.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/by/bsuir/wtlab2/controller/commands/results/RedirectResult.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/by/bsuir/wtlab2/controller/commands/implementations/results/RedirectResult.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/by/bsuir/wtlab2/controller/commands/results/StatusCodeResult.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/by/bsuir/wtlab2/controller/commands/implementations/results/StatusCodeResult.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/by/bsuir/wtlab2/entity/Answer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/by/bsuir/wtlab2/entity/Answer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/by/bsuir/wtlab2/entity/Ban.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/by/bsuir/wtlab2/entity/Question.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/by/bsuir/wtlab2/entity/Question.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/by/bsuir/wtlab2/controller/commands/implementations/pages/QuestionPageCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/by/bsuir/wtlab2/controller/commands/implementations/pages/QuestionPageCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/by/bsuir/wtlab2/controller/commands/implementations/pages/TopicPageCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/by/bsuir/wtlab2/controller/commands/implementations/pages/TopicPageCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/by/bsuir/wtlab2/controller/commands/implementations/pages/TopicsPageCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/by/bsuir/wtlab2/controller/commands/implementations/pages/TopicsPageCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/by/bsuir/wtlab2/controller/commands/implementations/pages/UsersPageCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/by/bsuir/wtlab2/controller/commands/implementations/pages/UsersPageCommand.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/by/bsuir/wtlab2/entity/Topic.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/by/bsuir/wtlab2/entity/Topic.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/by/bsuir/wtlab2/entity/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/by/bsuir/wtlab2/entity/User.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/by/bsuir/wtlab2/entity/UserDetails.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/by/bsuir/wtlab2/entity/UserDetails.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/by/bsuir/wtlab2/filter/SecurityFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/by/bsuir/wtlab2/filter/SecurityFilter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/by/bsuir/wtlab2/mapping/Mapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/by/bsuir/wtlab2/mapping/Mapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/by/bsuir/wtlab2/exception/ProjectException.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/by/bsuir/wtlab2/exception/ProjectException.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/by/bsuir/wtlab2/mapper/QuestionMapper.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/by/bsuir/wtlab2/service/AnswerService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/by/bsuir/wtlab2/service/AnswerService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/by/bsuir/wtlab2/service/AuthenticationService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/by/bsuir/wtlab2/service/AuthenticationService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/by/bsuir/wtlab2/service/QuestionService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/by/bsuir/wtlab2/service/QuestionService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/by/bsuir/wtlab2/service/TopicService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/by/bsuir/wtlab2/service/TopicService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/by/bsuir/wtlab2/service/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/by/bsuir/wtlab2/service/UserService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/by/bsuir/wtlab2/service/implementations/AnswerServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/by/bsuir/wtlab2/service/implementations/AnswerServiceImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/by/bsuir/wtlab2/service/implementations/AuthenticationServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/by/bsuir/wtlab2/service/implementations/AuthenticationServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/by/bsuir/wtlab2/utils/ClassScanner.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/by/bsuir/wtlab2/utils/ClassScanner.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/messages_en_US.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/messages_en_US.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/messages_ru_RU.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/messages_ru_RU.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/tags/askQuestionModal.tag" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/tags/askQuestionModal.tag" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/tags/basepage.tag" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/tags/basepage.tag" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/tags/header.tag" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/tags/header.tag" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/tags/pagination.tag" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/tags/pagination.tag" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/tags/question.tag" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/tags/question.tag" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/tags/questionsList.tag" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/tags/topicList.tag" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/tags/topicNamesList.tag" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/tags/topicListItem.tag" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/tags/topicName.tag" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/banned.jsp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/error.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/404.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/by/bsuir/wtlab2/service/implementations/QuestionServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/by/bsuir/wtlab2/service/implementations/QuestionServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/by/bsuir/wtlab2/service/implementations/TopicServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/by/bsuir/wtlab2/service/implementations/TopicServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/by/bsuir/wtlab2/service/implementations/UserServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/by/bsuir/wtlab2/service/implementations/UserServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/by/bsuir/wtlab2/utils/Page.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/by/bsuir/wtlab2/utils/Page.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/by/bsuir/wtlab2/utils/SessionUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/by/bsuir/wtlab2/utils/RequestUtil.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/tags/answer.tag" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/tags/question/answer.tag" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/tags/askButton.tag" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/tags/common/askButton.tag" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/tags/askQuestionModal.tag" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/tags/common/askQuestionModal.tag" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/tags/createTopicButton.tag" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/tags/topics/createTopicButton.tag" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/tags/createTopicModal.tag" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/tags/topics/createTopicModal.tag" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/tags/deleteQuestionModal.tag" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/tags/question/deleteQuestionModal.tag" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/tags/deleteTopicModal.tag" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/tags/topics/deleteTopicModal.tag" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/tags/editTopicModal.tag" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/tags/topics/editTopicModal.tag" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/tags/profileAnswer.tag" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/tags/profile/profileAnswer.tag" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/tags/profileAnswersList.tag" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/tags/profile/profileAnswersList.tag" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/tags/question.tag" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/tags/question/question.tag" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/tags/questionActionButtons.tag" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/tags/question/questionActionButtons.tag" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/tags/questionCard.tag" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/tags/common/questionCard.tag" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/tags/questionCardsList.tag" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/tags/common/questionCardsList.tag" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/tags/topicActionsButtons.tag" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/tags/topics/topicActionsButtons.tag" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/tags/topicCard.tag" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/tags/topics/topicCard.tag" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/tags/topicName.tag" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/tags/home/topicName.tag" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/tags/topicNamesList.tag" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/tags/home/topicNamesList.tag" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/tags/topicQuestionCard.tag" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/tags/topics/topicQuestionCard.tag" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/tags/userCard.tag" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/tags/users/userCard.tag" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/index.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/index.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/login.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/login.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/profile.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/profile.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/register.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/register.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/question.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/question.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/topic.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/topic.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/topics.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/topics.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/users.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/users.jsp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -121,8 +128,8 @@
         <option value="Jspx File" />
         <option value="AnnotationType" />
         <option value="Enum" />
-        <option value="Interface" />
         <option value="Jsp File" />
+        <option value="Interface" />
         <option value="Class" />
       </list>
     </option>
@@ -154,6 +161,9 @@
         <option name="mavenHome" value="Use Maven wrapper" />
       </MavenGeneralSettings>
     </option>
+  </component>
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="CurrentFile" />
   </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 2
@@ -188,16 +198,19 @@
   &quot;keyToStringList&quot;: {
     &quot;DatabaseDriversLRU&quot;: [
       &quot;mysql&quot;
+    ],
+    &quot;com.intellij.ide.scratch.LRUPopupBuilder$1/SQL Dialect&quot;: [
+      &quot;MySQL&quot;
     ]
   }
 }</component>
   <component name="RecentsManager">
     <key name="CreateClassDialog.RecentsKey">
-      <recent name="by.bsuir.wtlab2.controller.commands.implementations" />
       <recent name="by.bsuir.wtlab2.service.implementations" />
-      <recent name="by.bsuir.wtlab2.controller.commands" />
-      <recent name="by.bsuir.wtlab2.service" />
-      <recent name="by.bsuir.wtlab2.beans" />
+      <recent name="by.bsuir.wtlab2.entitymapper.implementations" />
+      <recent name="by.bsuir.wtlab2.dao.implementations" />
+      <recent name="by.bsuir.wtlab2.dao.connection.implementations" />
+      <recent name="by.bsuir.wtlab2.dao" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\Pavel\OneDrive - bsuir.by\Рабочий стол\bsuir\3 курс\ВТ\WT-Lab2\src\main\webapp\resources" />
@@ -207,16 +220,18 @@
       <recent name="C:\Users\Pavel\OneDrive - bsuir.by\Рабочий стол\bsuir\3 курс\ВТ\WT-Lab2\src\main\java\by\bsuir\wtlab2\mapping" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Users\Pavel\OneDrive - bsuir.by\Рабочий стол\bsuir\3 курс\ВТ\WT-Lab2\src\main\webapp\WEB-INF\views" />
-      <recent name="C:\Users\Pavel\OneDrive - bsuir.by\Рабочий стол\bsuir\3 курс\ВТ\WT-Lab2\src\main\webapp" />
-      <recent name="C:\Users\Pavel\OneDrive - bsuir.by\Рабочий стол\bsuir\3 курс\ВТ\WT-Lab2\src\main\webapp\WEB-INF\fragments" />
+      <recent name="C:\Users\Pavel\OneDrive - bsuir.by\Рабочий стол\bsuir\3 курс\ВТ\WT-Lab2\src\main\webapp\WEB-INF\tags\topics" />
+      <recent name="C:\Users\Pavel\OneDrive - bsuir.by\Рабочий стол\bsuir\3 курс\ВТ\WT-Lab2\src\main\webapp\WEB-INF\tags\question" />
+      <recent name="C:\Users\Pavel\OneDrive - bsuir.by\Рабочий стол\bsuir\3 курс\ВТ\WT-Lab2\src\main\webapp\WEB-INF\tags\users" />
+      <recent name="C:\Users\Pavel\OneDrive - bsuir.by\Рабочий стол\bsuir\3 курс\ВТ\WT-Lab2\src\main\webapp\WEB-INF\tags\common" />
+      <recent name="C:\Users\Pavel\OneDrive - bsuir.by\Рабочий стол\bsuir\3 курс\ВТ\WT-Lab2\src\main\webapp\WEB-INF\tags\profile" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="by.bsuir.wtlab2.controller.commands.implementations.actions" />
       <recent name="by.bsuir.wtlab2.exception" />
       <recent name="by.bsuir.wtlab2.constants" />
       <recent name="by.bsuir.wtlab2.filter" />
       <recent name="by.bsuir.wtlab2.utils" />
-      <recent name="by.bsuir.wtlab2.application" />
     </key>
   </component>
   <component name="RunManager">
@@ -335,7 +350,20 @@
       <workItem from="1700868782708" duration="70000" />
       <workItem from="1700870079909" duration="3672000" />
       <workItem from="1700894963279" duration="211000" />
-      <workItem from="1700896725044" duration="32457000" />
+      <workItem from="1700896725044" duration="40470000" />
+      <workItem from="1700994609666" duration="450000" />
+      <workItem from="1701188251659" duration="254000" />
+      <workItem from="1701191310768" duration="5154000" />
+      <workItem from="1701198544332" duration="3795000" />
+      <workItem from="1701203773431" duration="6313000" />
+      <workItem from="1701210169590" duration="444000" />
+      <workItem from="1701243075566" duration="1414000" />
+      <workItem from="1701245538298" duration="2586000" />
+      <workItem from="1701250195714" duration="85000" />
+      <workItem from="1701250330665" duration="16000" />
+      <workItem from="1701250420577" duration="11000" />
+      <workItem from="1701250579808" duration="5620000" />
+      <workItem from="1701267434361" duration="15945000" />
     </task>
     <task id="LOCAL-00001" summary="Initial">
       <option name="closed" value="true" />
@@ -377,7 +405,15 @@
       <option name="project" value="LOCAL" />
       <updated>1700857334651</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="Pages with pagination">
+      <option name="closed" value="true" />
+      <created>1700947705971</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1700947705971</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -389,7 +425,8 @@
     <MESSAGE value="Security added" />
     <MESSAGE value="Registration, authentication and localization" />
     <MESSAGE value="Services and entities" />
-    <option name="LAST_COMMIT_MESSAGE" value="Services and entities" />
+    <MESSAGE value="Pages with pagination" />
+    <option name="LAST_COMMIT_MESSAGE" value="Pages with pagination" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -399,9 +436,9 @@
           <option name="timeStamp" value="1" />
         </breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/by/bsuir/wtlab2/controller/commands/implementations/pages/ProfilePageCommand.java</url>
-          <line>74</line>
-          <option name="timeStamp" value="3" />
+          <url>file://$PROJECT_DIR$/src/main/java/by/bsuir/wtlab2/dao/implementations/ViewDAOImpl.java</url>
+          <line>38</line>
+          <option name="timeStamp" value="11" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

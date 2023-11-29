@@ -1,6 +1,7 @@
 <%@ taglib uri="jakarta.tags.core" prefix="c" %>
 <%@ taglib prefix="fmt" uri="jakarta.tags.fmt" %>
 <%@ taglib tagdir="/WEB-INF/tags" prefix="t" %>
+<%@ taglib tagdir="/WEB-INF/tags/users" prefix="u" %>
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <fmt:setLocale value="${sessionScope.locale}"/>
 <fmt:setBundle basename="messages"/>
@@ -15,7 +16,7 @@
 
         <div class="list-group gap-2">
             <c:forEach items="${requestScope.users.content}" var="user">
-                <t:userCard user="${user}"/>
+                <u:userCard user="${user}"/>
             </c:forEach>
             <t:pagination url="/users?" page="${requestScope.users}"/>
         </div>

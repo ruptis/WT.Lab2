@@ -8,11 +8,14 @@ import by.bsuir.wtlab2.controller.commands.implementations.results.JspResult;
 import by.bsuir.wtlab2.entity.Question;
 import by.bsuir.wtlab2.entity.Topic;
 import by.bsuir.wtlab2.exception.CommandException;
+import by.bsuir.wtlab2.exception.ServiceException;
 import by.bsuir.wtlab2.service.QuestionService;
 import by.bsuir.wtlab2.service.TopicService;
 import by.bsuir.wtlab2.utils.Page;
+import by.bsuir.wtlab2.utils.RequestUtil;
 import jakarta.servlet.http.HttpServletRequest;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 
 import java.util.HashMap;
 import java.util.List;
@@ -20,6 +23,7 @@ import java.util.Map;
 
 import static by.bsuir.wtlab2.constants.Role.BANNED;
 
+@Slf4j
 @CommandSecurity(except = {BANNED})
 @WebCommand(mapping = "/topics")
 @RequiredArgsConstructor
@@ -32,12 +36,25 @@ public class TopicsPageCommand implements Command {
 
     @Override
     public CommandResult execute(HttpServletRequest request) throws CommandException {
-        int page = request.getParameter("page") == null ? 1 : Integer.parseInt(request.getParameter("page"));
+        int page = RequestUtil.getPage(request);
 
-        Page<Topic> topicsPage = topicService.getAllTopics(page, PAGE_SIZE);
+        Page<Topic> topicsPage;
+        try {
+            topicsPage = topicService.getAllTopics(page, PAGE_SIZE);
+        } catch (ServiceException e) {
+            log.error("Failed to get topics", e);
+            throw new CommandException("Failed to get topics", e);
+        }
+
         Map<Topic, List<Question>> topicsMap = new HashMap<>();
-        for (Topic topic : topicsPage.getContent())
-            topicsMap.put(topic, questionService.getAllQuestionsByTopic(topic.getId()));
+        for (Topic topic : topicsPage.getContent()) {
+            try {
+                topicsMap.put(topic, questionService.getAllQuestionsByTopic(topic.getId()));
+            } catch (ServiceException e) {
+                log.error("Failed to get questions", e);
+                throw new CommandException("Failed to get questions", e);
+            }
+        }
 
         Map<String, Object> attributes = new HashMap<>();
         attributes.put("topicsPage", topicsPage);
